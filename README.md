@@ -4,6 +4,7 @@ A clean, crash-proof boilerplate for modern Android apps using Kotlin 2.0 and Je
 ## 🚀 How to Use This Template
 When you clone this repo to start a NEW app (e.g., "MyCoolApp"), follow these 3 steps:
 **Step 1: Rename Package in build.gradle**
+
 Open app/build.gradle and change these lines:
 ```
 namespace 'com.self.mycoolapp'
@@ -21,6 +22,7 @@ Open app/src/main/res/values/strings.xml:
 ```
 
 **Optional: For Project**
+
 Change the name from settings.gradle
 ```
 rootProject.name = "ComposeStarter"
