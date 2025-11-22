@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/SysBlock/app/src/main/AndroidManifest.xml",
+      "selection": {
+        "end": {
+          "column": 26,
+          "index": 216,
+          "line": 5
+        },
+        "start": {
+          "column": 26,
+          "index": 216,
+          "line": 5
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/SysBlock/app/src/main/AndroidManifest.xml"
+}
