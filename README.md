@@ -3,6 +3,7 @@
 A clean, crash-proof boilerplate for modern Android apps using Kotlin 2.0 and Jetpack Compose.
 ## 🚀 How to Use This Template
 When you clone this repo to start a NEW app (e.g., "MyCoolApp"), follow these 3 steps:
+
 **Step 1: Rename Package in build.gradle**
 
 Open app/build.gradle and change these lines:
