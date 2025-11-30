@@ -57,6 +57,7 @@ keystore.properties
 # External Native Build output
 .externalNativeBuild
 .cxx/
+.acside/editor
 
 # Mac OS junk
 .DS_Store
