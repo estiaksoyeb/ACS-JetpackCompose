@@ -1,6 +1,5 @@
 package com.example.composestarter
 
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,48 +9,36 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
+import android.view.WindowManager
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Get the controller to change icon colors
+        // --- THE "CHROME" SETUP ---
+        
+        // 1. Tell the Window NOT to decorate the system bars automatically.
+        // This ensures your color settings below are respected and not overwritten by themes.
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+
+        // 2. Set the physical colors to Pure White
+        // We use android.graphics.Color.WHITE (Standard Android Color) for the Window APIs
+        window.statusBarColor = android.graphics.Color.WHITE
+        window.navigationBarColor = android.graphics.Color.WHITE
+        window.decorView.setBackgroundColor(android.graphics.Color.WHITE)
+
+        // 3. Force the Status Bar & Nav Bar Icons to be BLACK
+        // "isAppearanceLightStatusBars = true" means "The bar is Light (White), so make icons Dark (Black)"
         val insetsController = WindowCompat.getInsetsController(window, window.decorView)
+        insetsController.isAppearanceLightStatusBars = true
+        insetsController.isAppearanceLightNavigationBars = true
 
         setContent {
-            // 2. Define the color (White)
-            val systemBarColor = Color.White
-
-            // 3. AUTO-DETECT ICON COLOR
-            // If the color is bright (luminance > 0.5), we use DARK icons. 
-            // If the color is dark, we use LIGHT icons.
-            val useDarkIcons = systemBarColor.luminance() > 0.5f
-
-            // 4. APPLY SETTINGS
-            // SideEffect ensures this runs every time the screen composes successfully
-            SideEffect {
-                val colorInt = systemBarColor.toArgb()
-
-                // Set the bar colors
-                window.statusBarColor = colorInt
-                window.navigationBarColor = colorInt
-                
-                // Set the underlying window background to match
-                window.setBackgroundDrawable(ColorDrawable(colorInt))
-
-                // FIX: Pass 'true' to these if the background is light, so icons become black
-                insetsController.isAppearanceLightStatusBars = useDarkIcons
-                insetsController.isAppearanceLightNavigationBars = useDarkIcons
-            }
-
             // This is your entry point
             AppEntryPoint()
         }
@@ -64,7 +51,7 @@ fun AppEntryPoint() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(Color.White), // Compose White
         contentAlignment = Alignment.Center
     ) {
         Text(
