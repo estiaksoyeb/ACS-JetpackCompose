@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 
-      FIX: Changed parent to "android:Theme.Material.Light.NoActionBar".
-      The previous "Theme.Material3..." caused the build error because that 
-      specific library is missing from your build.gradle.
-      
-      Using "android:Theme.Material..." uses the built-in system theme, 
-      which guarantees the build will pass.
-    -->
     <style name="Theme.AppTheme" parent="android:Theme.Material.Light.NoActionBar">
         
-        <!-- 2. Set the Window Background to White (Splash screen color) -->
-        <item name="android:windowBackground">@android:color/white</item>
+        <!-- Window Background Color -->
+        <item name="android:windowBackground">@color/window_background</item>
         
-        <!-- 3. Status Bar Color: White -->
-       <!-- <item name="android:statusBarColor">@android:color/white</item> -->
-        
-        <!-- 4. Navigation Bar Color: White -->
-      <!--  <item name="android:navigationBarColor">@android:color/white</item> -->
-
-        <!-- 5. CRITICAL: Tell Android "My background is light, so please make icons BLACK" -->
-        <!-- Note: specific to API 23+ (Status) and API 27+ (Nav) -->
+        <!-- Status/Nav Bar Icon Colors: True means dark icons (for light backgrounds) -->
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item> 
     </style>
