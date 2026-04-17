@@ -1,5 +1,7 @@
 # Building Android Apps on an Android Phone with Gradle (AGP 8.x)
 
+> **IMPORTANT:** This documentation is specifically for **proot** and **chroot** environments (e.g., Ubuntu, Debian, or Kali inside Termux/AndroidIDE). If you are using **native Termux**, many of these issues are handled by the `tur-repo` or standard package managers.
+
 > How `android-sdk-custom` finally made it work.
 
 For a long time, building modern Android apps (AGP 8.x) directly on an Android phone using the Gradle CLI felt impossible. The build would always fail with errors like:
@@ -26,8 +28,9 @@ This article documents the exact, hardened setup that finally produces a real, i
 8. [One-time Cleanup](#one-time-cleanup)
 9. [Building the App (Daemon vs No-Daemon)](#building-the-app-daemon-vs-no-daemon)
 10. [Installing the APK](#installing-the-apk)
-11. [Why This Finally Works](#why-this-finally-works)
-12. [Hard Rules for Future Setups](#hard-rules-for-future-setups)
+11. [NDK Setup for Native Code](./NDK%20Setup.md)
+12. [Why This Finally Works](#why-this-finally-works)
+13. [Hard Rules for Future Setups](#hard-rules-for-future-setups)
 
 ---
 
