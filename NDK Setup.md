@@ -61,7 +61,23 @@ apt install -y clang-18 lld-18 llvm-18 make ninja-build patchelf file
 
 ---
 
-## 4. Fixing Linker "Library Not Found" Errors
+## 4. Automation: The Patcher Script
+
+To avoid doing these steps manually every time you download a new NDK, you can use the `patch_ndk.sh` script included in this repository.
+
+### How to use:
+1.  **Download and Extract** your new NDK.
+2.  **Run the script** pointing to that folder:
+    ```bash
+    chmod +x patch_ndk.sh
+    ./patch_ndk.sh /opt/android-sdk-custom/android-sdk/ndk/your-new-version
+    ```
+
+The script will automatically patch the detection logic, symlink your system's `clang/make`, and fix the ARM64 library paths.
+
+---
+
+## 5. Fixing Linker "Library Not Found" Errors
 
 Modern NDKs (r23+) often fail to find `libgcc` or `libatomic` during the `TryCompile` phase of CMake.
 
