@@ -161,4 +161,4 @@ Next time, you simply extract this archive, and `ndk-build` will work immediatel
 
 ---
 
-**Next Step:** Refer to [Build with Termux.md](./Build\ with\ Termux.md) for general SDK and Environment setup.
+**Next Step:** Refer to [build-with-termux.md](./build-with-termux.md) for general SDK and Environment setup.

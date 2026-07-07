@@ -37,7 +37,11 @@ rootProject.name = "ComposeStarter"
  * [x] No XML Layouts
  * [x] **ARM64 Android Support** (Build directly on your phone via Termux)
 
-## 📱 Building on Android (Termux/CLI)
-This project is optimized for building directly on an Android device using the Gradle CLI. For detailed setup instructions, including how to fix AAPT2 architecture mismatches, see:
+## 📖 Documentation
 
-👉 **[Build with Termux.md](./Build%20with%20Termux.md)**
+Detailed guides and setup instructions are located in the `docs/` folder:
+
+* 📱 **[Building with Termux](./docs/build-with-termux.md)**: Hardware/Software setup for compiling on Android devices.
+* 🛠️ **[NDK Native Setup](./docs/ndk-setup.md)**: Symlinking and patching NDK compilers for C/C++ builds on ARM64.
+* 🔑 **[App Signing Guide](./docs/app-signing.md)**: Setup instructions for local and CI/CD automated signing.
+
