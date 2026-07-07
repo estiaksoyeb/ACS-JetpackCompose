@@ -26,11 +26,10 @@ This article documents the exact, hardened setup that finally produces a real, i
 6. [Forcing Gradle to use the ARM64 AAPT2](#forcing-gradle-to-use-the-arm64-aapt2)
 7. [compileSdk vs buildToolsVersion](#compile-sdk-vs-build-tools-version)
 8. [One-time Cleanup](#one-time-cleanup)
-9. [Building the App (Daemon vs No-Daemon)](#building-the-app-daemon-vs-no-daemon)
-10. [Installing the APK](#installing-the-apk)
-11. [NDK Setup for Native Code](./ndk-setup.md)
-12. [Why This Finally Works](#why-this-finally-works)
-13. [Hard Rules for Future Setups](#hard-rules-for-future-setups)
+9. [Installing the APK](#installing-the-apk)
+10. [NDK Setup for Native Code](./ndk-setup.md)
+11. [Why This Finally Works](#why-this-finally-works)
+12. [Hard Rules for Future Setups](#hard-rules-for-future-setups)
 
 ---
 
@@ -177,32 +176,6 @@ rm -rf ~/.gradle/caches
 
 ---
 
-## Building the App (Daemon vs No-Daemon)
-
-On Android devices, Gradle daemon behavior matters a lot.
-
-**Recommended build command:**
-```bash
-./gradlew assembleDebug --no-daemon
-```
-
-**Why:**
-- The Gradle JVM exits after the build.
-- RAM is released immediately.
-- No background processes remain.
-
-To enforce no-daemon globally, you can add to `~/.gradle/gradle.properties`:
-```properties
-org.gradle.daemon=false
-```
-
-**Optional (to prevent Kotlin daemon too):**
-```properties
-kotlin.compiler.execution.strategy=in-process
-```
-
----
-
 ## Installing the APK
 
 Building does not install the app.
@@ -226,7 +199,6 @@ The working combination is:
 2. **build-tools 36.1.0** with a working ARM64 `aapt2`.
 3. **Explicit AAPT2 override** in `gradle.properties`.
 4. **Clean Gradle caches** removing poisoned x86 artifacts.
-5. **Daemon-free builds** to avoid memory leaks on phones.
 
 Missing any one of these causes the build to fail.
 
@@ -239,7 +211,6 @@ Missing any one of these causes the build to fail.
 - Always pin `android.aapt2FromMavenOverride`.
 - Always clear caches after SDK changes.
 - Build and install are separate steps.
-- Prefer `--no-daemon` on phones.
 
 ---
 
