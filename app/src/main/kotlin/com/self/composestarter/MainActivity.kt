@@ -118,8 +118,8 @@ fun Modifier.glassSurface(
             canvas.save()
             canvas.clipPath(path, clipOp = ClipOp.Difference)
             
-            val shadowPaint = Paint().asFrameworkPaint().apply {
-                color = android.graphics.Color.BLACK
+            val shadowPaint = android.graphics.Paint().apply {
+                color = android.graphics.Color.TRANSPARENT
                 setShadowLayer(
                     outerShadowBlurPx,
                     outerShadowOffsetXPx,
@@ -169,8 +169,8 @@ fun Modifier.glassSurface(
         
         // A. Inner Highlight (Top-left)
         if (innerHighlightBlurPx > 0f && innerHighlightColor.alpha > 0f) {
-            val highlightPaint = Paint().asFrameworkPaint().apply {
-                color = android.graphics.Color.BLACK
+            val highlightPaint = android.graphics.Paint().apply {
+                color = android.graphics.Color.TRANSPARENT
                 setShadowLayer(
                     innerHighlightBlurPx,
                     innerHighlightOffsetXPx,
@@ -199,8 +199,8 @@ fun Modifier.glassSurface(
         
         // B. Inner Shadow (Bottom-right)
         if (innerShadowBlurPx > 0f && innerShadowColor.alpha > 0f) {
-            val shadowPaint = Paint().asFrameworkPaint().apply {
-                color = android.graphics.Color.BLACK
+            val shadowPaint = android.graphics.Paint().apply {
+                color = android.graphics.Color.TRANSPARENT
                 setShadowLayer(
                     innerShadowBlurPx,
                     innerShadowOffsetXPx,
@@ -920,8 +920,8 @@ fun Modifier.glassSurface(
             canvas.save()
             canvas.clipPath(path, clipOp = ClipOp.Difference)
             
-            val shadowPaint = Paint().asFrameworkPaint().apply {
-                color = android.graphics.Color.BLACK
+            val shadowPaint = android.graphics.Paint().apply {
+                color = android.graphics.Color.TRANSPARENT
                 setShadowLayer(
                     outerShadowBlurPx,
                     outerShadowOffsetXPx,
@@ -968,8 +968,8 @@ fun Modifier.glassSurface(
         canvas.clipPath(rectPath)
         
         if (innerHighlightBlurPx > 0f && innerHighlightColor.alpha > 0f) {
-            val highlightPaint = Paint().asFrameworkPaint().apply {
-                color = android.graphics.Color.BLACK
+            val highlightPaint = android.graphics.Paint().apply {
+                color = android.graphics.Color.TRANSPARENT
                 setShadowLayer(
                     innerHighlightBlurPx,
                     innerHighlightOffsetXPx,
@@ -997,8 +997,8 @@ fun Modifier.glassSurface(
         }
         
         if (innerShadowBlurPx > 0f && innerShadowColor.alpha > 0f) {
-            val shadowPaint = Paint().asFrameworkPaint().apply {
-                color = android.graphics.Color.BLACK
+            val shadowPaint = android.graphics.Paint().apply {
+                color = android.graphics.Color.TRANSPARENT
                 setShadowLayer(
                     innerShadowBlurPx,
                     innerShadowOffsetXPx,
